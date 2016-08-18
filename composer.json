@@ -1,0 +1,20 @@
+{
+    "name": "vanio/coding-standards",
+    "description": "Vanio Coding Standard Ruleset for PHP_CodeSniffer.",
+    "keywords": ["coding standards", "conventions", "codesniffer"],
+    "homepage": "https://github.com/vaniocz/coding-standards",
+    "license": "MIT",
+    "authors": [
+        {"name": "Marek Štípek", "email": "marek.stipek@vanio.cz"}
+    ],
+    "require": {
+        "consistence/coding-standard": "^0.11.1",
+        "slevomat/coding-standard": "^1.1.1",
+        "squizlabs/php_codesniffer": "^2.6.2"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}

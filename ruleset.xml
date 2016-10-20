@@ -3,6 +3,7 @@
     <rule ref="vendor/consistence/coding-standard/Consistence/ruleset.xml">
         <exclude name="Generic.WhiteSpace.DisallowSpaceIndent"/>
         <exclude name="Generic.WhiteSpace.ScopeIndent"/>
+        <exclude name="PEAR.Formatting.MultiLineAssignment"/> <!-- multiple assignments per statement should not need extra whitespace  -->
         <exclude name="PEAR.WhiteSpace.ObjectOperatorIndent"/> <!-- because of deep tree structures -->
         <exclude name="Squiz.ControlStructures.ControlSignature"/> <!-- {} is allowed -->
         <exclude name="Squiz.WhiteSpace.MemberVarSpacing"/>

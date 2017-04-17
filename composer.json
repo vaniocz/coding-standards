@@ -8,9 +8,8 @@
         {"name": "Marek Štípek", "email": "marek.stipek@vanio.cz"}
     ],
     "require": {
-        "consistence/coding-standard": "^0.11.1",
-        "slevomat/coding-standard": "^1.1.1",
-        "squizlabs/php_codesniffer": "^2.6.2"
+        "consistence/coding-standard": "^0.13",
+        "slevomat/coding-standard": "^2.0.1"
     },
     "extra": {
         "branch-alias": {

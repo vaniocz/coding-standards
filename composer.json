@@ -9,7 +9,7 @@
     ],
     "require": {
         "consistence/coding-standard": "^0.13",
-        "slevomat/coding-standard": "^2.0.1"
+        "slevomat/coding-standard": "^2.0.2"
     },
     "extra": {
         "branch-alias": {

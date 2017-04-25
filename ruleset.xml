@@ -31,7 +31,6 @@
 
     <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/ruleset.xml">
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameAfterKeyword"/>
-        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions"/>
         <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces.NonFullyQualified"/>
         <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName"/>
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation.NonFullyQualifiedClassName"/>
@@ -39,6 +38,7 @@
         <exclude name="SlevomatCodingStandard.Classes.UnusedPrivateElements.unusedMethod"/>
         <exclude name="SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces"/>
         <exclude name="SlevomatCodingStandard.Files.TypeNameMatchesFileName"/>
+        <exclude name="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly"/>
         <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes"/>
         <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification"/>
         <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversablePropertyTypeHintSpecification"/>

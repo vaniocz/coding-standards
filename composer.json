@@ -8,12 +8,20 @@
         {"name": "Marek Štípek", "email": "marek.stipek@vanio.cz"}
     ],
     "require": {
-        "consistence/coding-standard": "^0.13",
-        "slevomat/coding-standard": "^2.0.2"
+        "escapestudios/symfony2-coding-standard": "^3.1",
+        "slevomat/coding-standard": "~4.0.0",
+        "squizlabs/php_codesniffer": "3.x-dev"
+    },
+    "autoload": {
+        "psr-4": {"Vanio\\CodingStandards\\": ""}
+    },
+    "scripts": {
+        "lint": "\"vendor/bin/phpcs\" -s --ignore=vendor .",
+        "fix": "\"vendor/bin/phpcbf\" ."
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1.x-dev"
+            "dev-master": "0.2.x-dev"
         }
     }
 }

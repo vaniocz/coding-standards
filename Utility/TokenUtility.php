@@ -5,12 +5,12 @@ use PHP_CodeSniffer\Files\File;
 
 class TokenUtility
 {
-    public static function replaceWhiteSpaceBefore(File $file, int $pointer, string $content = ''): void
+    public static function replaceWhiteSpaceBefore(File $file, int $pointer, string $content = '')
     {
         self::replaceWhiteSpace($file, $pointer, $content, -1);
     }
 
-    public static function replaceWhiteSpaceAfter(File $file, int $pointer, string $content = ''): void
+    public static function replaceWhiteSpaceAfter(File $file, int $pointer, string $content = '')
     {
         self::replaceWhiteSpace($file, $pointer, $content, 1);
     }
@@ -39,7 +39,7 @@ class TokenUtility
         return self::findToken($file, $pointer, $types, $skippedTypes, 1);
     }
 
-    private static function replaceWhiteSpace(File $file, int $pointer, string $content, int $increment): void
+    private static function replaceWhiteSpace(File $file, int $pointer, string $content, int $increment)
     {
         $tokens = $file->getTokens();
 

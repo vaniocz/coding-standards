@@ -65,7 +65,7 @@ class ScopeClosingBraceSniff extends BaseScopeClosingBraceSniff
      * @param File $file
      * @param int $pointer
      */
-    private function processFunctionScope(File $file, $pointer): void
+    private function processFunctionScope(File $file, $pointer)
     {
         $tokens = $file->getTokens();
         $closingBracePointer = $tokens[$pointer]['scope_closer'];

@@ -16,8 +16,8 @@
         "psr-4": {"Vanio\\CodingStandards\\": ""}
     },
     "scripts": {
-        "lint": "\"vendor/bin/phpcs\" -s --ignore=vendor .",
-        "fix": "\"vendor/bin/phpcbf\" ."
+        "lint": "\"vendor/bin/phpcs\" -s --standard=ruleset.xml .",
+        "fix": "\"vendor/bin/phpcbf\" --standard=ruleset.xml ."
     },
     "extra": {
         "branch-alias": {

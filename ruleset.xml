@@ -4,6 +4,7 @@
     <arg name="report-width" value="120"/>
     <arg name="extensions" value="php"/>
     <arg name="ignore" value="var, vendor"/>
+    <config name="ignore_warnings_on_exit" value="1"/>
 
     <rule ref="Generic.Arrays.ArrayIndent"/>
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>

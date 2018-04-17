@@ -52,8 +52,8 @@
         <exclude name="PSR2.Methods.FunctionClosingBrace.SpacingBeforeClose"/><!-- covered by CodingStandards.WhiteSpace.ScopeClosingBrace.SpacingBeforeClose -->
         <exclude name="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace"/><!-- {} is preferred over newline which is covered by CodingStandards.WhiteSpace.ScopeClosingBrace.WhiteSpace -->
         <exclude name="Squiz.Functions.FunctionDeclaration"/><!-- covered by Squiz.Functions.MultiLineFunctionDeclaration and CodingStandards.WhiteSpace.FunctionDeclarationOpeningBracket -->
-        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.NoSpaceBeforeArg"/><!-- covered by Symfony.Whitespace.CommaSpacing -->
-        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.NoSpaceBeforeHint"/><!-- covered by Symfony.Whitespace.CommaSpacing -->
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.NoSpaceBeforeArg"/><!-- covered by Symfony.WhiteSpace.CommaSpacing -->
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.NoSpaceBeforeHint"/><!-- covered by Symfony.WhiteSpace.CommaSpacing -->
         <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterHint"/><!-- covered by SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing.MultipleSpacesBetweenTypeHintAndParameter -->
         <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceSpacing"/><!-- covered by Generic.Functions.OpeningFunctionBraceBsdAllman.BraceSpacing -->
         <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.NewlineBeforeOpenBrace"/><!-- closing bracket and an opening brace on the same line is forbidden -->
@@ -74,9 +74,9 @@
         <exclude name="Symfony.NamingConventions.ValidClassName.InvalidInterfaceName"/><!-- interface suffix is discouraged -->
         <exclude name="Symfony.Objects.ObjectInstantiation"/><!-- instantiating classes with unnecessary parentheses is forbidden -->
         <exclude name="Symfony.Scope.MethodScope"/><!-- unnecessary visibility on interface and test methods is forbidden which is covered by CodingStandards.Scope.MethodScope -->
-        <exclude name="Symfony.Whitespace.AssignmentSpacing"/><!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
-        <exclude name="Symfony.Whitespace.BinaryOperatorSpacing"/><!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
-        <exclude name="Symfony.Whitespace.DiscourageFitzinator"/><!-- covered by Squiz.WhiteSpace.SuperfluousWhitespace -->
+        <exclude name="Symfony.WhiteSpace.AssignmentSpacing"/><!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
+        <exclude name="Symfony.WhiteSpace.BinaryOperatorSpacing"/><!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
+        <exclude name="Symfony.WhiteSpace.DiscourageFitzinator"/><!-- covered by Squiz.WhiteSpace.SuperfluousWhitespace -->
         <exclude name="Zend.Files.ClosingTag"/><!-- covered by PSR2.Files.ClosingTag -->
     </rule>
 

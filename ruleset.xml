@@ -1,9 +1,9 @@
 <ruleset name="Vanio Coding Standards">
     <arg name="colors"/>
     <arg name="encoding" value="utf-8"/>
-    <arg name="report-width" value="120"/>
     <arg name="extensions" value="php"/>
     <arg name="ignore" value="var, vendor"/>
+    <arg name="report-width" value="120"/>
     <config name="ignore_warnings_on_exit" value="1"/>
 
     <rule ref="Generic.Arrays.ArrayIndent"/>
@@ -18,9 +18,9 @@
     <rule ref="Generic.Files.InlineHTML"/>
     <rule ref="Generic.NamingConventions.ConstructorName"/>
     <rule ref="Generic.PHP.BacktickOperator"/>
+    <rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
     <rule ref="Generic.PHP.DeprecatedFunctions"/>
     <rule ref="Generic.PHP.ForbiddenFunctions"/>
-    <rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
     <rule ref="Generic.PHP.SAPIUsage"/>
     <rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing"/>
     <rule ref="Generic.WhiteSpace.LanguageConstructSpacing"/>
@@ -81,15 +81,16 @@
     </rule>
 
     <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/ruleset.xml">
-        <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces"/><!-- all namespaces except root namespace are allowed to use -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.AssignmentInCondition.AssignmentInCondition"/><!-- assignment in condition is allowed when there is no equal sign -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEqualOperators"/><!-- equal operator is allowed when loosely comparing arrays -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.EarlyExit"/><!-- early exit is not preferred for short code, usage of elseif after if conditions which return or throw something is allowed -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison"/><!-- yoda conditions are forbidden -->
         <exclude name="SlevomatCodingStandard.Files.TypeNameMatchesFileName"/><!-- needs further configuration, covered on runtime by PSR-4 -->
-        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions"/><!-- global function references must be unqualified -->
-        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants"/><!-- global constant references must be unqualified -->
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation.NonFullyQualifiedClassName"/><!-- class and interface names must be unqualified -->
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions"/><!-- class and interface names must be unqualified -->
-        <exclude name="SlevomatCodingStandard.ControlStructures.AssignmentInCondition.AssignmentInCondition"/><!-- assignment in condition is allowed when there is no equal sign -->
-        <exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison"/><!-- yoda conditions are forbidden -->
-        <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEqualOperators"/><!-- equal operator is allowed when loosely comparing arrays -->
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants"/><!-- global constant references must be unqualified -->
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions"/><!-- global function references must be unqualified -->
+        <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces"/><!-- all namespaces except root namespace are allowed to use -->
     </rule>
 
     <rule ref="Generic.Classes.DuplicateClassName">
@@ -101,19 +102,19 @@
     </rule>
 
     <rule ref="Generic.Commenting.DocComment">
-        <exclude name="Generic.Commenting.DocComment.MissingShort"/><!-- @param descriptions are not required -->
         <exclude name="Generic.Commenting.DocComment.ContentAfterOpen"/><!-- inline PHPDoc is allowed -->
         <exclude name="Generic.Commenting.DocComment.ContentBeforeClose"/><!-- inline PHPDoc is allowed -->
-        <exclude name="Generic.Commenting.DocComment.SpacingBeforeTags"/><!-- blank lines in PHPDoc are forbidden -->
-        <exclude name="Generic.Commenting.DocComment.TagValueIndent"/><!-- extra spacing alignment is forbidden -->
+        <exclude name="Generic.Commenting.DocComment.MissingShort"/><!-- @param descriptions are not required -->
         <exclude name="Generic.Commenting.DocComment.NonParamGroup"/><!-- tag grouping is forbidden -->
         <exclude name="Generic.Commenting.DocComment.SpacingBeforeShort"/><!-- short description must be on the same line as @var -->
+        <exclude name="Generic.Commenting.DocComment.SpacingBeforeTags"/><!-- blank lines in PHPDoc are forbidden -->
+        <exclude name="Generic.Commenting.DocComment.TagValueIndent"/><!-- extra spacing alignment is forbidden -->
     </rule>
 
     <rule ref="Generic.Files.LineLength">
         <properties>
-            <property name="lineLimit" value="120"/>
             <property name="absoluteLineLimit" value="0"/>
+            <property name="lineLimit" value="120"/>
         </properties>
     </rule>
 
@@ -140,11 +141,11 @@
     </rule>
 
     <rule ref="PSR2.ControlStructures.SwitchDeclaration">
-        <exclude name="PSR2.ControlStructures.SwitchDeclaration.caseNotLower"/><!-- covered by Generic.PHP.LowerCaseKeyword.Found -->
+        <exclude name="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody"/><!-- covered by SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces.IncorrectEmptyLinesBeforeClosingBrace -->
         <exclude name="PSR2.ControlStructures.SwitchDeclaration.BreakNotNewLine"/><!-- covered by PSR2.ControlStructures.SwitchDeclaration.BodyOnNextLineCASE and Generic.Formatting.DisallowMultipleStatements -->
         <exclude name="PSR2.ControlStructures.SwitchDeclaration.caseIndent"/><!-- covered by Generic.WhiteSpace.ScopeIndent.Incorrect -->
+        <exclude name="PSR2.ControlStructures.SwitchDeclaration.caseNotLower"/><!-- covered by Generic.PHP.LowerCaseKeyword.Found -->
         <exclude name="PSR2.ControlStructures.SwitchDeclaration.defaultIndent"/><!-- covered by Generic.WhiteSpace.ScopeIndent.Incorrect -->
-        <exclude name="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody"/><!-- covered by SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces.IncorrectEmptyLinesBeforeClosingBrace -->
     </rule>
 
     <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses">
@@ -184,7 +185,7 @@
 
     <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration">
         <properties>
-            <property name="usefulAnnotations" type="array" value="@internal, @dataProvider"/>
+            <property name="usefulAnnotations" type="array" value="@internal, @dataProvider, @ORM\, @Assert\"/>
         </properties>
     </rule>
 
@@ -196,15 +197,15 @@
     </rule>
 
     <rule ref="Squiz.Arrays.ArrayDeclaration">
-        <exclude name="Squiz.Arrays.ArrayDeclaration.NotLowerCase"/><!-- long array syntax is forbidden -->
-        <exclude name="Squiz.Arrays.ArrayDeclaration.SpaceAfterKeyword"/><!-- long array syntax is forbidden -->
-        <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/><!-- extra spacing alignment is forbidden -->
         <exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"/><!-- expects closing brace at the same level as opening brace -->
+        <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/><!-- extra spacing alignment is forbidden -->
         <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/><!-- uses indentation of only single space -->
         <exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/><!-- single-value array written on multiple lines is preferred over long lines -->
-        <exclude name="Squiz.Arrays.ArrayDeclaration.NoSpaceBeforeDoubleArrow"/> <!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
         <exclude name="Squiz.Arrays.ArrayDeclaration.NoSpaceAfterDoubleArrow"/> <!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
+        <exclude name="Squiz.Arrays.ArrayDeclaration.NoSpaceBeforeDoubleArrow"/> <!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
+        <exclude name="Squiz.Arrays.ArrayDeclaration.NotLowerCase"/><!-- long array syntax is forbidden -->
         <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/><!-- multiple-value array can be written on a single line -->
+        <exclude name="Squiz.Arrays.ArrayDeclaration.SpaceAfterKeyword"/><!-- long array syntax is forbidden -->
         <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/><!-- extra spacing alignment is forbidden -->
     </rule>
 
@@ -216,8 +217,8 @@
         <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/><!-- requires long boolean and integer -->
         <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/><!-- requires long boolean and integer -->
         <exclude name="Squiz.Commenting.FunctionComment.Missing"/><!-- PHPDoc is not required on all methods -->
-        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/><!-- @param tags are not required for satisfactorily typehinted arguments which is covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint -->
         <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/><!-- @param descriptions are not required -->
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/><!-- @param tags are not required for satisfactorily typehinted arguments which is covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint -->
         <exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/><!-- @return void is forbidden -->
         <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/><!-- covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint -->
         <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/><!-- extra spacing alignment is forbidden -->
@@ -239,13 +240,13 @@
     </rule>
 
     <rule ref="Squiz.ControlStructures.SwitchDeclaration">
-        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingAfterCase"/><!-- blank line = whitespace -->
-        <exclude name="Squiz.ControlStructures.SwitchDeclaration.MissingDefault"/><!-- default statement is not always required -->
-        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingBeforeBreak"/><!-- whitespace before break is sometimes allowed -->
-        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingAfterBreak"/><!-- blank line after case breaking statement is forbidden -->
         <exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"/><!-- breaking statements must be indented to the same level as the case body -->
-        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpaceBeforeColonCase"/><!-- covered by PSR2.ControlStructures.SwitchDeclaration.SpaceBeforeColonCASE -->
         <exclude name="Squiz.ControlStructures.SwitchDeclaration.CaseNotLower"/><!-- covered by Generic.PHP.LowerCaseKeyword.Found -->
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.MissingDefault"/><!-- default statement is not always required -->
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpaceBeforeColonCase"/><!-- covered by PSR2.ControlStructures.SwitchDeclaration.SpaceBeforeColonCASE -->
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingAfterBreak"/><!-- blank line after case breaking statement is forbidden -->
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingAfterCase"/><!-- blank line = whitespace -->
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingBeforeBreak"/><!-- whitespace before break is sometimes allowed -->
     </rule>
 
     <rule ref="Squiz.Operators.IncrementDecrementUsage">
@@ -272,8 +273,8 @@
             <property name="spacing" value="1"/>
         </properties>
 
-        <exclude name="Squiz.WhiteSpace.FunctionSpacing.BeforeFirst"/><!-- covered by SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces.IncorrectEmptyLinesAfterOpeningBrace -->
         <exclude name="Squiz.WhiteSpace.FunctionSpacing.AfterLast"/><!-- covered by SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces.IncorrectEmptyLinesBeforeClosingBrace -->
+        <exclude name="Squiz.WhiteSpace.FunctionSpacing.BeforeFirst"/><!-- covered by SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces.IncorrectEmptyLinesAfterOpeningBrace -->
     </rule>
 
     <rule ref="Squiz.WhiteSpace.MemberVarSpacing">

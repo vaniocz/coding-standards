@@ -1,5 +1,5 @@
 <?php
-namespace Vanio\CodingStandards\Sniffs\CodeAnalysis;
+namespace Vanio\CodingStandards\Sniffs\NamingConventions;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Standards\PSR1\Sniffs\Methods\CamelCapsMethodNameSniff;

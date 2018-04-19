@@ -16,7 +16,11 @@
     <rule ref="Generic.Commenting.Fixme"/>
     <rule ref="Generic.Commenting.Todo"/>
     <rule ref="Generic.Files.InlineHTML"/>
-    <rule ref="Generic.NamingConventions.ConstructorName"/>
+
+    <rule ref="Generic.NamingConventions.ConstructorName">
+       <exclude name="Generic.NamingConventions.ConstructorName.OldStyle"/> <!-- reports also methods in interfaces with the same name -->
+    </rule>
+
     <rule ref="Generic.PHP.BacktickOperator"/>
     <rule ref="Generic.PHP.DeprecatedFunctions"/>
     <rule ref="Generic.PHP.ForbiddenFunctions"/>
@@ -49,8 +53,8 @@
         <exclude name="PEAR.Commenting.InlineComment"/><!-- covered by Squiz.Commenting.InlineComment -->
         <exclude name="PEAR.WhiteSpace.ScopeClosingBrace"/><!-- covered by CodingStandards.WhiteSpace.ScopeClosingBrace -->
         <exclude name="PSR1.Methods.CamelCapsMethodName"/><!-- covered by CodingStandards.CodeAnalysis.ValidFunctionName -->
-        <exclude name="PSR2.Methods.FunctionClosingBrace.SpacingBeforeClose"/><!-- covered by CodingStandards.WhiteSpace.ScopeClosingBrace.SpacingBeforeClose -->
-        <exclude name="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace"/><!-- {} is preferred over newline which is covered by CodingStandards.WhiteSpace.ScopeClosingBrace.WhiteSpace -->
+        <exclude name="PSR2.Methods.FunctionClosingBrace.SpacingBeforeClose"/><!-- covered by CodingStandards.WhiteSpace.ScopeClosingBrace -->
+        <exclude name="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace"/><!-- {} is preferred over newline which is covered by CodingStandards.WhiteSpace.ScopeClosingBrace -->
         <exclude name="Squiz.Functions.FunctionDeclaration"/><!-- covered by Squiz.Functions.MultiLineFunctionDeclaration and CodingStandards.WhiteSpace.FunctionDeclarationOpeningBracket -->
         <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.NoSpaceBeforeArg"/><!-- covered by Symfony.WhiteSpace.CommaSpacing -->
         <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.NoSpaceBeforeHint"/><!-- covered by Symfony.WhiteSpace.CommaSpacing -->
@@ -70,13 +74,13 @@
         <exclude name="Symfony.ControlStructure.YodaConditions"/><!-- yoda conditions are forbidden -->
         <exclude name="Symfony.Formatting.ReturnOrThrow"/><!-- usage of elseif after if conditions which return or throw something is allowed -->
         <exclude name="Symfony.Functions.Arguments"/><!-- arguments on multiple lines are preferred over long lines -->
+        <exclude name="Symfony.Functions.ScopeOrder.Invalid"/><!-- covered by CodingStandards.Scope.ScopeOrder -->
         <exclude name="Symfony.NamingConventions.ValidClassName.InvalidAbstractName"/><!-- abstract prefix is discouraged -->
         <exclude name="Symfony.NamingConventions.ValidClassName.InvalidInterfaceName"/><!-- interface suffix is discouraged -->
         <exclude name="Symfony.Objects.ObjectInstantiation"/><!-- instantiating classes with unnecessary parentheses is forbidden -->
-        <exclude name="Symfony.Scope.MethodScope"/><!-- unnecessary visibility on interface and test methods is forbidden which is covered by CodingStandards.Scope.MethodScope -->
-        <exclude name="Symfony.WhiteSpace.AssignmentSpacing"/><!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
-        <exclude name="Symfony.WhiteSpace.BinaryOperatorSpacing"/><!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
-        <exclude name="Symfony.WhiteSpace.DiscourageFitzinator"/><!-- covered by Squiz.WhiteSpace.SuperfluousWhitespace -->
+        <exclude name="Symfony.Whitespace.AssignmentSpacing"/><!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
+        <exclude name="Symfony.Whitespace.BinaryOperatorSpacing"/><!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
+        <exclude name="Symfony.Whitespace.DiscourageFitzinator"/><!-- covered by Squiz.WhiteSpace.SuperfluousWhitespace -->
         <exclude name="Zend.Files.ClosingTag"/><!-- covered by PSR2.Files.ClosingTag -->
     </rule>
 
@@ -91,6 +95,7 @@
         <exclude name="SlevomatCodingStandard.ControlStructures.AssignmentInCondition.AssignmentInCondition"/><!-- assignment in condition is allowed when there is no equal sign -->
         <exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison"/><!-- yoda conditions are forbidden -->
         <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEqualOperators"/><!-- equal operator is allowed when loosely comparing arrays -->
+        <exclude name="SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces"/><!-- covered by CodingStandards.WhiteSpace.EmptyLinesAroundTypeBraces -->
         <exclude name="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue"/><!-- PHP 7.0 compatibility -->
     </rule>
 
@@ -139,6 +144,11 @@
 
     <rule ref="PSR2.ControlStructures.ControlStructureSpacing">
         <exclude name="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/><!-- disallows newline after opening brace which is allowed -->
+    </rule>
+
+    <rule ref="PSR2.Classes.ClassDeclaration">
+        <exclude name="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody"/><!-- covered by CodingStandards.WhiteSpace.EmptyLinesAroundTypeBraces.IncorrectEmptyLinesBeforeClosingBrace -->
+        <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNotAlone"/><!-- {} is preferred over newline which is covered by CodingStandards.WhiteSpace.ScopeClosingBrace -->
     </rule>
 
     <rule ref="PSR2.ControlStructures.SwitchDeclaration">
@@ -226,6 +236,9 @@
         <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/><!-- covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint -->
         <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/><!-- extra spacing alignment is forbidden -->
         <exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/><!-- covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint -->
+
+        <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamName"/>
+        <exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
     </rule>
 
     <rule ref="Squiz.Commenting.FunctionComment.InvalidNoReturn">

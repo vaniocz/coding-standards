@@ -8,8 +8,8 @@ use Vanio\CodingStandards\Utility\TokenUtility;
 
 class ClosureEmptyBodyOpeningBraceSniff implements Sniff
 {
-    const CODE_WHITESPACE = 'WhiteSpace';
-    const MESSAGE_WHITESPACE = 'Incorrect white space before closure empty body opening brace';
+    private const CODE_WHITESPACE = 'WhiteSpace';
+    private const MESSAGE_WHITESPACE = 'Incorrect white space before closure empty body opening brace';
 
     /**
      * @return int[]
@@ -24,7 +24,7 @@ class ClosureEmptyBodyOpeningBraceSniff implements Sniff
      * @param File $file
      * @param int $pointer
      */
-    public function process(File $file, $pointer)
+    public function process(File $file, $pointer): void
     {
         $tokens = $file->getTokens();
         $token = $tokens[$pointer];

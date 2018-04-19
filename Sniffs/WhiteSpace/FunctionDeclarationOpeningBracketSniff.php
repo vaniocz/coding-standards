@@ -7,8 +7,8 @@ use Vanio\CodingStandards\Utility\TokenUtility;
 
 class FunctionDeclarationOpeningBracketSniff implements Sniff
 {
-    const CODE_WHITESPACE = 'WhiteSpace';
-    const MESSAGE_WHITESPACE = 'Unexpected white space before opening bracket in declaration of function "%s"';
+    private const CODE_WHITESPACE = 'WhiteSpace';
+    private const MESSAGE_WHITESPACE = 'Unexpected white space before opening bracket in declaration of function "%s"';
 
     /**
      * @return int[]
@@ -23,7 +23,7 @@ class FunctionDeclarationOpeningBracketSniff implements Sniff
      * @param File $file
      * @param int $pointer
      */
-    public function process(File $file, $pointer)
+    public function process(File $file, $pointer): void
     {
         $tokens = $file->getTokens();
         $openingBracketPointer = $tokens[$pointer]['parenthesis_opener'];

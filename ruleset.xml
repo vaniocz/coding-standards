@@ -81,7 +81,6 @@
     </rule>
 
     <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/ruleset.xml">
-        <exclude name="SlevomatCodingStandard.Classes.ClassConstantVisibility"/><!-- PHP 7.0 compatibility -->
         <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces"/><!-- all namespaces except root namespace are allowed to use -->
         <exclude name="SlevomatCodingStandard.Files.TypeNameMatchesFileName"/><!-- needs further configuration, covered on runtime by PSR-4 -->
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions"/><!-- global function references must be unqualified -->
@@ -91,7 +90,6 @@
         <exclude name="SlevomatCodingStandard.ControlStructures.AssignmentInCondition.AssignmentInCondition"/><!-- assignment in condition is allowed when there is no equal sign -->
         <exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison"/><!-- yoda conditions are forbidden -->
         <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEqualOperators"/><!-- equal operator is allowed when loosely comparing arrays -->
-        <exclude name="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue"/><!-- PHP 7.0 compatibility -->
     </rule>
 
     <rule ref="Generic.Classes.DuplicateClassName">
@@ -186,8 +184,6 @@
 
     <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration">
         <properties>
-            <property name="enableNullableTypeHints" value="false"/><!-- PHP 7.0 compatibility -->
-            <property name="enableVoidTypeHint" value="false"/><!-- PHP 7.0 compatibility -->
             <property name="usefulAnnotations" type="array" value="@internal, @dataProvider"/>
         </properties>
     </rule>

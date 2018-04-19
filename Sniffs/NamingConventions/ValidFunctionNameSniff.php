@@ -7,8 +7,8 @@ use SlevomatCodingStandard\Helpers\StringHelper;
 
 class ValidFunctionNameSniff extends CamelCapsMethodNameSniff
 {
-    const CODE_NOT_SNAKE_CASE = 'NotSnakeCase';
-    const MESSAGE_NOT_SNAKE_CASE = 'Global function "%s" is not in snake case format';
+    private const CODE_NOT_SNAKE_CASE = 'NotSnakeCase';
+    private const MESSAGE_NOT_SNAKE_CASE = 'Global function "%s" is not in snake case format';
 
     /**
      * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
@@ -16,7 +16,7 @@ class ValidFunctionNameSniff extends CamelCapsMethodNameSniff
      * @param int $pointer
      * @param int $scope
      */
-    protected function processTokenWithinScope(File $file, $pointer, $scope)
+    protected function processTokenWithinScope(File $file, $pointer, $scope): void
     {
         $function = $file->getDeclarationName($pointer);
 
@@ -30,7 +30,7 @@ class ValidFunctionNameSniff extends CamelCapsMethodNameSniff
      * @param File $file
      * @param int $pointer
      */
-    protected function processTokenOutsideScope(File $file, $pointer)
+    protected function processTokenOutsideScope(File $file, $pointer): void
     {
         $function = $file->getDeclarationName($pointer);
 

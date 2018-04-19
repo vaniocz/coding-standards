@@ -8,18 +8,18 @@ use Vanio\CodingStandards\Utility\TokenUtility;
 
 class ScopeClosingBraceSniff extends BaseScopeClosingBraceSniff
 {
-    const CODE_WHITESPACE_IN_EMPTY_BODY = 'WhiteSpaceInEmptyBody';
-    const CODE_BLANK_LINES_IN_FUNCTION = 'BlankLinesInFunction';
+    private const CODE_WHITESPACE_IN_EMPTY_BODY = 'WhiteSpaceInEmptyBody';
+    private const CODE_BLANK_LINES_IN_FUNCTION = 'BlankLinesInFunction';
 
-    const MESSAGE_WHITESPACE_IN_EMPTY_BODY = 'Unexpected white space before closing brace';
-    const MESSAGE_BLANK_LINES_IN_FUNCTION = 'Unexpected blank lines before closing function brace';
+    private const MESSAGE_WHITESPACE_IN_EMPTY_BODY = 'Unexpected white space before closing brace';
+    private const MESSAGE_BLANK_LINES_IN_FUNCTION = 'Unexpected blank lines before closing function brace';
 
     /**
      * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
      * @param File $file
      * @param int $pointer
      */
-    public function process(File $file, $pointer)
+    public function process(File $file, $pointer): void
     {
         $tokens = $file->getTokens();
         $token = $tokens[$pointer];
@@ -65,7 +65,7 @@ class ScopeClosingBraceSniff extends BaseScopeClosingBraceSniff
      * @param File $file
      * @param int $pointer
      */
-    private function processFunctionScope(File $file, $pointer)
+    private function processFunctionScope(File $file, $pointer): void
     {
         $tokens = $file->getTokens();
         $closingBracePointer = $tokens[$pointer]['scope_closer'];

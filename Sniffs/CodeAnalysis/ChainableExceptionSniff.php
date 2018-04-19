@@ -9,11 +9,11 @@ use SlevomatCodingStandard\Helpers\TokenHelper;
 
 class ChainableExceptionSniff implements Sniff
 {
-    const CODE_MISSING_TYPEHINT = 'MissingTypehint';
-    const CODE_NOT_CHAINABLE = 'NotChainable';
+    private const CODE_MISSING_TYPEHINT = 'MissingTypehint';
+    private const CODE_NOT_CHAINABLE = 'NotChainable';
 
-    const MESSAGE_MISSING_TYPEHINT = 'Exception is not chainable. It must have optional \Throwable as last constructor argument.';
-    const MESSAGE_NOT_CHAINABLE = 'Exception is not chainable. It must have optional \Throwable as last constructor argument and has "%s".';
+    private const MESSAGE_MISSING_TYPEHINT = 'Exception is not chainable. It must have optional \Throwable as last constructor argument.';
+    private const MESSAGE_NOT_CHAINABLE = 'Exception is not chainable. It must have optional \Throwable as last constructor argument and has "%s".';
 
     /**
      * @return int[]
@@ -28,7 +28,7 @@ class ChainableExceptionSniff implements Sniff
      * @param File $file
      * @param int $pointer
      */
-    public function process(File $file, $pointer)
+    public function process(File $file, $pointer): void
     {
         $extendedClass = $file->findExtendedClassName($pointer);
 
@@ -59,10 +59,7 @@ class ChainableExceptionSniff implements Sniff
         $file->addError(self::MESSAGE_NOT_CHAINABLE, $constructorPointer, self::CODE_NOT_CHAINABLE, [$lastTypeHint]);
     }
 
-    /**
-     * @return int|null
-     */
-    private function findConstructorPointer(File $file, int $pointer)
+    private function findConstructorPointer(File $file, int $pointer): ?int
     {
         while ($pointer = TokenHelper::findNext($file, T_FUNCTION, $pointer)) {
             if (FunctionHelper::getName($file, $pointer) === '__construct') {

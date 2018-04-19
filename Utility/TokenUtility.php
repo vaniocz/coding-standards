@@ -5,12 +5,12 @@ use PHP_CodeSniffer\Files\File;
 
 class TokenUtility
 {
-    public static function replaceWhiteSpaceBefore(File $file, int $pointer, string $content = '')
+    public static function replaceWhiteSpaceBefore(File $file, int $pointer, string $content = ''): void
     {
         self::replaceWhiteSpace($file, $pointer, $content, -1);
     }
 
-    public static function replaceWhiteSpaceAfter(File $file, int $pointer, string $content = '')
+    public static function replaceWhiteSpaceAfter(File $file, int $pointer, string $content = ''): void
     {
         self::replaceWhiteSpace($file, $pointer, $content, 1);
     }
@@ -22,7 +22,7 @@ class TokenUtility
      * @param int[] $skippedTypes
      * @return mixed[]|null
      */
-    public static function findTokenBefore(File $file, int $pointer, array $types, array $skippedTypes = [])
+    public static function findTokenBefore(File $file, int $pointer, array $types, array $skippedTypes = []): ?array
     {
         return self::findToken($file, $pointer, $types, $skippedTypes, -1);
     }
@@ -34,12 +34,12 @@ class TokenUtility
      * @param int[] $skippedTypes
      * @return mixed[]|null
      */
-    public static function findTokenAfter(File $file, int $pointer, array $types, array $skippedTypes = [])
+    public static function findTokenAfter(File $file, int $pointer, array $types, array $skippedTypes = []): ?array
     {
         return self::findToken($file, $pointer, $types, $skippedTypes, 1);
     }
 
-    private static function replaceWhiteSpace(File $file, int $pointer, string $content, int $increment)
+    private static function replaceWhiteSpace(File $file, int $pointer, string $content, int $increment): void
     {
         $tokens = $file->getTokens();
 
@@ -61,8 +61,13 @@ class TokenUtility
      * @param int $increment
      * @return mixed[]|null
      */
-    private static function findToken(File $file, int $pointer, array $types, array $skippedTypes, int $increment)
-    {
+    private static function findToken(
+        File $file,
+        int $pointer,
+        array $types,
+        array $skippedTypes,
+        int $increment
+    ): ?array {
         $types = array_combine($types, $types);
         $skippedTypes = array_combine($skippedTypes, $skippedTypes);
         $tokens = $file->getTokens();

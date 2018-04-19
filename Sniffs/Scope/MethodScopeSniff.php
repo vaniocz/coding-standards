@@ -9,11 +9,11 @@ use Vanio\CodingStandards\Utility\TokenUtility;
 
 class MethodScopeSniff extends AbstractScopeSniff
 {
-    const CODE_UNNECESSARY = 'Unnecessary';
-    const CODE_MISSING = 'Missing';
+    private const CODE_UNNECESSARY = 'Unnecessary';
+    private const CODE_MISSING = 'Missing';
 
-    const MESSAGE_UNNECESSARY = 'Unnecessary visibility on %s method "%s"';
-    const MESSAGE_MISSING = 'Visibility must be declared on method "%s"';
+    private const MESSAGE_UNNECESSARY = 'Unnecessary visibility on %s method "%s"';
+    private const MESSAGE_MISSING = 'Visibility must be declared on method "%s"';
 
     public function __construct()
     {
@@ -26,7 +26,7 @@ class MethodScopeSniff extends AbstractScopeSniff
      * @param int $pointer
      * @param int $scope
      */
-    protected function processTokenWithinScope(File $file, $pointer, $scope)
+    protected function processTokenWithinScope(File $file, $pointer, $scope): void
     {
         $tokens = $file->getTokens();
 
@@ -55,6 +55,6 @@ class MethodScopeSniff extends AbstractScopeSniff
      * @param File $file
      * @param int $pointer
      */
-    protected function processTokenOutsideScope(File $file, $pointer)
+    protected function processTokenOutsideScope(File $file, $pointer): void
     {}
 }

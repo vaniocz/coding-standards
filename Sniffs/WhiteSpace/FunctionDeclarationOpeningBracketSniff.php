@@ -7,8 +7,8 @@ use Vanio\CodingStandards\Utility\TokenUtility;
 
 class FunctionDeclarationOpeningBracketSniff implements Sniff
 {
-    private const CODE_WHITESPACE = 'WhiteSpace';
-    private const MESSAGE_WHITESPACE = 'Unexpected white space before opening bracket in declaration of function "%s"';
+    public const CODE_WHITESPACE = 'WhiteSpace';
+    public const MESSAGE_WHITESPACE = 'Unexpected white space before opening bracket in declaration of function "%s"';
 
     /**
      * @return int[]

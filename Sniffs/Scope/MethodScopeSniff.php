@@ -9,11 +9,11 @@ use Vanio\CodingStandards\Utility\TokenUtility;
 
 class MethodScopeSniff extends AbstractScopeSniff
 {
-    private const CODE_UNNECESSARY = 'Unnecessary';
-    private const CODE_MISSING = 'Missing';
+    public const CODE_UNNECESSARY = 'Unnecessary';
+    public const CODE_MISSING = 'Missing';
 
-    private const MESSAGE_UNNECESSARY = 'Unnecessary visibility on %s method "%s"';
-    private const MESSAGE_MISSING = 'Visibility must be declared on method "%s"';
+    public const MESSAGE_UNNECESSARY = 'Unnecessary visibility on %s method "%s"';
+    public const MESSAGE_MISSING = 'Visibility must be declared on method "%s"';
 
     public function __construct()
     {

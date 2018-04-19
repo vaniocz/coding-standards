@@ -7,8 +7,8 @@ use SlevomatCodingStandard\Helpers\StringHelper;
 
 class ValidFunctionNameSniff extends CamelCapsMethodNameSniff
 {
-    private const CODE_NOT_SNAKE_CASE = 'NotSnakeCase';
-    private const MESSAGE_NOT_SNAKE_CASE = 'Global function "%s" is not in snake case format';
+    public const CODE_NOT_SNAKE_CASE = 'NotSnakeCase';
+    public const MESSAGE_NOT_SNAKE_CASE = 'Global function "%s" is not in snake case format';
 
     /**
      * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint

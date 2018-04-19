@@ -8,8 +8,8 @@ use Vanio\CodingStandards\Utility\TokenUtility;
 
 class ClosureEmptyBodyOpeningBraceSniff implements Sniff
 {
-    private const CODE_WHITESPACE = 'WhiteSpace';
-    private const MESSAGE_WHITESPACE = 'Incorrect white space before closure empty body opening brace';
+    public const CODE_WHITESPACE = 'WhiteSpace';
+    public const MESSAGE_WHITESPACE = 'Incorrect white space before closure empty body opening brace';
 
     /**
      * @return int[]

@@ -8,11 +8,11 @@ use Vanio\CodingStandards\Utility\TokenUtility;
 
 class ScopeClosingBraceSniff extends BaseScopeClosingBraceSniff
 {
-    private const CODE_WHITESPACE_IN_EMPTY_BODY = 'WhiteSpaceInEmptyBody';
-    private const CODE_BLANK_LINES_IN_FUNCTION = 'BlankLinesInFunction';
+    public const CODE_WHITESPACE_IN_EMPTY_BODY = 'WhiteSpaceInEmptyBody';
+    public const CODE_BLANK_LINES_IN_FUNCTION = 'BlankLinesInFunction';
 
-    private const MESSAGE_WHITESPACE_IN_EMPTY_BODY = 'Unexpected white space before closing brace';
-    private const MESSAGE_BLANK_LINES_IN_FUNCTION = 'Unexpected blank lines before closing function brace';
+    public const MESSAGE_WHITESPACE_IN_EMPTY_BODY = 'Unexpected white space before closing brace';
+    public const MESSAGE_BLANK_LINES_IN_FUNCTION = 'Unexpected blank lines before function closing brace';
 
     /**
      * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint

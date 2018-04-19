@@ -9,11 +9,11 @@ use SlevomatCodingStandard\Helpers\TokenHelper;
 
 class ChainableExceptionSniff implements Sniff
 {
-    private const CODE_MISSING_TYPEHINT = 'MissingTypehint';
-    private const CODE_NOT_CHAINABLE = 'NotChainable';
+    public const CODE_MISSING_TYPEHINT = 'MissingTypehint';
+    public const CODE_NOT_CHAINABLE = 'NotChainable';
 
-    private const MESSAGE_MISSING_TYPEHINT = 'Exception is not chainable. It must have optional \Throwable as last constructor argument.';
-    private const MESSAGE_NOT_CHAINABLE = 'Exception is not chainable. It must have optional \Throwable as last constructor argument and has "%s".';
+    public const MESSAGE_MISSING_TYPEHINT = 'Exception is not chainable. It must have optional \Throwable as last constructor argument.';
+    public const MESSAGE_NOT_CHAINABLE = 'Exception is not chainable. It must have optional \Throwable as last constructor argument and has "%s".';
 
     /**
      * @return int[]

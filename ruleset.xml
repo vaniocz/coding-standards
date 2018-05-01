@@ -94,6 +94,7 @@
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants"/><!-- global constant references must be unqualified -->
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions"/><!-- global function references must be unqualified -->
         <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces"/><!-- all namespaces except root namespace are allowed to use -->
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration"/><!-- void return typehint is forbidden in test methods, covered by CodingStandards.TypeHints.TypeHintDeclaration -->
         <exclude name="SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces"/><!-- covered by CodingStandards.WhiteSpace.EmptyLinesAroundTypeBraces -->
     </rule>
 
@@ -173,6 +174,10 @@
         </properties>
     </rule>
 
+    <rule ref="SlevomatCodingStandard.Namespaces.UseSpacing.IncorrectLinesCountBeforeFirstUse">
+        <exclude-pattern>AppKernel.php</exclude-pattern>
+    </rule>
+
     <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
         <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing"/>
 
@@ -183,12 +188,6 @@
 
     <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.IncorrectWhitespaceBetweenOpenTagAndDeclare">
         <message>Strict type declarations are forbidden</message>
-    </rule>
-
-    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration">
-        <properties>
-            <property name="usefulAnnotations" type="array" value="@internal, @dataProvider, @ORM\, @Assert\, @I18nRoute, @Template"/>
-        </properties>
     </rule>
 
     <rule ref="Squiz.Arrays.ArrayDeclaration">

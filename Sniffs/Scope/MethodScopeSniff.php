@@ -4,6 +4,7 @@ namespace Vanio\CodingStandards\Sniffs\Scope;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\AbstractScopeSniff;
 use PHP_CodeSniffer\Util\Tokens;
+use SlevomatCodingStandard\Helpers\FunctionHelper;
 use SlevomatCodingStandard\Helpers\StringHelper;
 use Vanio\CodingStandards\Utility\TokenUtility;
 
@@ -12,8 +13,8 @@ class MethodScopeSniff extends AbstractScopeSniff
     public const CODE_UNNECESSARY = 'Unnecessary';
     public const CODE_MISSING = 'Missing';
 
-    public const MESSAGE_UNNECESSARY = 'Unnecessary visibility on %s method "%s"';
-    public const MESSAGE_MISSING = 'Visibility must be declared on method "%s"';
+    public const MESSAGE_UNNECESSARY = 'Unnecessary visibility on %s method %s';
+    public const MESSAGE_MISSING = 'Visibility must be declared on method %s';
 
     public function __construct()
     {
@@ -39,7 +40,10 @@ class MethodScopeSniff extends AbstractScopeSniff
         $visibilityToken = TokenUtility::findTokenBefore($file, $pointer, Tokens::$scopeModifiers, $skippedTypes);
 
         if ($visibilityToken && !$isVisibilityRequired) {
-            $data = [$tokens[$scope]['code'] === T_INTERFACE ? 'interface' : 'test', $method];
+            $data = [
+                $tokens[$scope]['code'] === T_INTERFACE ? 'interface' : 'test',
+                FunctionHelper::getFullyQualifiedName($file, $pointer),
+            ];
 
             if ($file->addFixableError(self::MESSAGE_UNNECESSARY, $pointer, self::CODE_UNNECESSARY, $data)) {
                 $file->fixer->replaceToken($visibilityToken['pointer'], '');

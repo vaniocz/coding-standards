@@ -94,7 +94,7 @@
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants"/><!-- global constant references must be unqualified -->
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions"/><!-- global function references must be unqualified -->
         <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces"/><!-- all namespaces except root namespace are allowed to use -->
-        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration"/><!-- void return typehint is forbidden in test methods, covered by CodingStandards.TypeHints.TypeHintDeclaration -->
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration"/><!-- void return type hint is forbidden in test methods, covered by CodingStandards.TypeHints.TypeHintDeclaration -->
         <exclude name="SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces"/><!-- covered by CodingStandards.WhiteSpace.EmptyLinesAroundTypeBraces -->
     </rule>
 
@@ -212,7 +212,7 @@
         <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/><!-- requires long boolean and integer -->
         <exclude name="Squiz.Commenting.FunctionComment.Missing"/><!-- PHPDoc is not required on all methods -->
         <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/><!-- @param descriptions are not required -->
-        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/><!-- @param tags are not required for satisfactorily typehinted arguments which is covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint -->
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/><!-- @param tags are not required for satisfactorily type-hinted arguments which is covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint -->
         <exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/><!-- @return void is forbidden -->
         <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/><!-- covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint -->
         <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/><!-- extra spacing alignment is forbidden -->

@@ -3,12 +3,13 @@ namespace Vanio\CodingStandards\Sniffs\WhiteSpace;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+use SlevomatCodingStandard\Helpers\FunctionHelper;
 use Vanio\CodingStandards\Utility\TokenUtility;
 
 class FunctionDeclarationOpeningBracketSniff implements Sniff
 {
     public const CODE_WHITESPACE = 'WhiteSpace';
-    public const MESSAGE_WHITESPACE = 'Unexpected white space before opening bracket in declaration of function "%s"';
+    public const MESSAGE_WHITESPACE = 'Unexpected white space before opening bracket in declaration of %s %s';
 
     /**
      * @return int[]
@@ -36,14 +37,22 @@ class FunctionDeclarationOpeningBracketSniff implements Sniff
             return;
         }
 
-        if (!$function = $file->getDeclarationName($pointer)) {
+        if (!$file->getDeclarationName($pointer)) {
             return;
         }
 
-        $data = [$function];
+        $data = [
+            $this->resolveFunctionTypeLabel($file, $pointer),
+            FunctionHelper::getFullyQualifiedName($file, $pointer),
+        ];
 
         if ($file->addFixableError(self::MESSAGE_WHITESPACE, $openingBracketPointer, self::CODE_WHITESPACE, $data)) {
             TokenUtility::replaceWhiteSpaceBefore($file, $openingBracketPointer);
         }
+    }
+
+    private function resolveFunctionTypeLabel(File $file, int $pointer): string
+    {
+        return FunctionHelper::isMethod($file, $pointer) ? 'method' : 'function';
     }
 }

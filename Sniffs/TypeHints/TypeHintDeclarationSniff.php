@@ -19,7 +19,16 @@ class TypeHintDeclarationSniff extends BaseTypeHintDeclarationSniff
     public const MESSAGE_TEST_METHOD_RETURN_ANNOTATION = 'Test %s %s has%s @return annotation, @return annotations for test methods are forbidden';
 
     /** @var string[] */
-    public $usefulAnnotations = ['@internal', '@dataProvider', '@ORM\\', '@Assert\\', '@I18nRoute', '@Template'];
+    public $usefulAnnotations = [
+        '@internal',
+        '@dataProvider',
+        '@ORM\\',
+        '@Assert\\',
+        '@Template',
+        '@Route',
+        '@I18nRoute',
+        '@Serializer',
+    ];
 
     /**
      * @param File $file

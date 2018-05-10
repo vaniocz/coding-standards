@@ -209,8 +209,8 @@
     </rule>
 
     <rule ref="Squiz.Commenting.FunctionComment">
-        <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/><!-- requires long boolean and integer -->
-        <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/><!-- requires long boolean and integer -->
+        <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/><!-- short builtin types are preferred over long ones -->
+        <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/><!-- short builtin types are preferred over long ones -->
         <exclude name="Squiz.Commenting.FunctionComment.Missing"/><!-- PHPDoc is not required on all methods -->
         <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/><!-- @param descriptions are not required -->
         <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/><!-- @param tags are not required for satisfactorily type-hinted arguments which is covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint -->
@@ -230,6 +230,7 @@
     </rule>
 
     <rule ref="Squiz.Commenting.VariableComment">
+        <exclude name="Squiz.Commenting.VariableComment.IncorrectVarType"/><!-- short builtin types are preferred over long ones which is covered by fixable SlevomatCodingStandard.TypeHints.LongTypeHints.UsedLongTypeHint and Symfony.Commenting.TypeHinting.Invalid -->
         <exclude name="Squiz.Commenting.VariableComment.Missing"/><!-- only @var tag is required which is covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingPropertyTypeHint -->
         <exclude name="Squiz.Commenting.VariableComment.MissingVar"/><!-- covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingPropertyTypeHint -->
         <exclude name="Squiz.Commenting.VariableComment.TagNotAllowed"/><!-- does not handle custom annotations -->

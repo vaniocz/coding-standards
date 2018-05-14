@@ -27,7 +27,6 @@
     <rule ref="PEAR.Files.IncludingFile"/>
     <rule ref="PEAR.Formatting.MultiLineAssignment"/>
     <rule ref="Squiz.Classes.ClassFileName"/>
-    <rule ref="Squiz.Classes.SelfMemberReference"/>
     <rule ref="Squiz.Commenting.ClassComment.SpacingAfter"/>
     <rule ref="Squiz.Commenting.DocCommentAlignment"/>
     <rule ref="Squiz.NamingConventions.ValidFunctionName.DoubleUnderscore"/>
@@ -202,6 +201,10 @@
         <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/><!-- multiple-value array can be written on a single line -->
         <exclude name="Squiz.Arrays.ArrayDeclaration.SpaceAfterKeyword"/><!-- long array syntax is forbidden -->
         <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/><!-- extra spacing alignment is forbidden -->
+    </rule>
+
+    <rule ref="Squiz.Classes.SelfMemberReference">
+        <exclude name="Squiz.Classes.SelfMemberReference.IncorrectCase"/><!-- Generic.PHP.LowerCaseKeyword -->
     </rule>
 
     <rule ref="Squiz.Commenting.BlockComment">

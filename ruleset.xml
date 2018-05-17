@@ -82,10 +82,12 @@
     <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/ruleset.xml">
         <exclude name="SlevomatCodingStandard.Arrays.TrailingArrayComma"/><!-- covered by Squiz.Arrays.ArrayDeclaration -->
         <exclude name="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming"/><!-- exception classes must end with "Exception" suffix which is covered by Symfony.NamingConventions.ValidClassName.InvalidExceptionName -->
-        <exclude name="SlevomatCodingStandard.ControlStructures.AssignmentInCondition.AssignmentInCondition"/><!-- assignment in condition is allowed when there is no equal sign -->
-        <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEqualOperators"/><!-- equal operator is allowed when loosely comparing arrays -->
-        <exclude name="SlevomatCodingStandard.ControlStructures.EarlyExit"/><!-- early exit is not preferred for short code, usage of elseif after if conditions which return or throw something is allowed -->
         <exclude name="SlevomatCodingStandard.Commenting.DisallowOneLinePropertyDocComment"/><!-- property PHPDoc must be written on one line when only one tag is present -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.AssignmentInCondition.AssignmentInCondition"/><!-- assignment in condition is allowed when there is no equal sign -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEmpty"/><!-- empty() construct is allowed -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEqualOperators"/><!-- equal operator is allowed when loosely comparing arrays -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.DisallowShortTernaryOperator"/><!-- short ternary operator is allowed -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.EarlyExit"/><!-- early exit is not preferred for short code, usage of elseif after if conditions which return or throw something is allowed -->
         <exclude name="SlevomatCodingStandard.ControlStructures.NewWithParentheses.MissingParentheses"/><!-- instantiating classes with unnecessary parentheses is forbidden -->
         <exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison"/><!-- yoda conditions are forbidden -->
         <exclude name="SlevomatCodingStandard.Files.TypeNameMatchesFileName"/><!-- needs further configuration, covered on runtime by PSR-4 -->
@@ -94,6 +96,7 @@
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants"/><!-- global constant references must be unqualified -->
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions"/><!-- global function references must be unqualified -->
         <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces"/><!-- all namespaces except root namespace are allowed to use -->
+        <exclude name="SlevomatCodingStandard.Operators.DisallowIncrementAndDecrementOperators"/><!-- increment and decrement operators are preferred over plus and minus -->
         <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration"/><!-- void return type hint is forbidden in test methods, covered by CodingStandards.TypeHints.TypeHintDeclaration -->
         <exclude name="SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces"/><!-- covered by CodingStandards.WhiteSpace.EmptyLinesAroundTypeBraces -->
     </rule>
@@ -155,6 +158,12 @@
         <exclude name="PSR2.ControlStructures.SwitchDeclaration.caseIndent"/><!-- covered by Generic.WhiteSpace.ScopeIndent.Incorrect -->
         <exclude name="PSR2.ControlStructures.SwitchDeclaration.caseNotLower"/><!-- covered by Generic.PHP.LowerCaseKeyword.Found -->
         <exclude name="PSR2.ControlStructures.SwitchDeclaration.defaultIndent"/><!-- covered by Generic.WhiteSpace.ScopeIndent.Incorrect -->
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Namespaces.NamespaceSpacing">
+        <properties>
+            <property name="linesCountBeforeNamespace" value="0"/>
+        </properties>
     </rule>
 
     <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">

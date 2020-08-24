@@ -54,6 +54,12 @@
         <exclude name="PEAR.Commenting.InlineComment"/><!-- covered by Squiz.Commenting.InlineComment -->
         <exclude name="PEAR.WhiteSpace.ScopeClosingBrace"/><!-- covered by CodingStandards.WhiteSpace.ScopeClosingBrace -->
         <exclude name="PSR1.Methods.CamelCapsMethodName"/><!-- covered by CodingStandards.CodeAnalysis.ValidFunctionName -->
+
+        <exclude name="PSR2.Classes.PropertyDeclaration.Underscore">
+            <exclude-pattern>Trait.php</exclude-pattern>
+            <exclude-pattern>/tests/</exclude-pattern>
+        </exclude>
+
         <exclude name="PSR2.Methods.FunctionClosingBrace.SpacingBeforeClose"/><!-- covered by CodingStandards.WhiteSpace.ScopeClosingBrace -->
         <exclude name="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace"/><!-- {} is preferred over newline which is covered by CodingStandards.WhiteSpace.ScopeClosingBrace -->
         <exclude name="Squiz.Functions.FunctionDeclaration"/><!-- covered by Squiz.Functions.MultiLineFunctionDeclaration and CodingStandards.WhiteSpace.FunctionDeclarationOpeningBracket -->
@@ -143,6 +149,10 @@
         <exclude-pattern>AppKernel.php</exclude-pattern>
     </rule>
 
+    <rule ref="PSR1.Classes.ClassDeclaration.MultipleClasses">
+        <exclude-pattern>/tests/</exclude-pattern>
+    </rule>
+
     <rule ref="PSR2.ControlStructures.ControlStructureSpacing">
         <exclude name="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/><!-- disallows newline after opening brace which is allowed -->
     </rule>
@@ -199,7 +209,7 @@
         <properties>
             <property name="enableNullableTypeHints" value="false"/><!-- PHP 7.0 compatibility -->
             <property name="enableVoidTypeHint" value="false"/><!-- PHP 7.0 compatibility -->
-            <property name="usefulAnnotations" type="array" value="@internal, @dataProvider"/>
+            <property name="usefulAnnotations" type="array" value="@internal, @dataProvider, @ORM\, @Assert\, @I18nRoute, @Template, @Column, @Id, @PostRemove"/>
         </properties>
     </rule>
 
@@ -221,6 +231,10 @@
         <exclude name="Squiz.Arrays.ArrayDeclaration.NoSpaceAfterDoubleArrow"/> <!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
         <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/><!-- multiple-value array can be written on a single line -->
         <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/><!-- extra spacing alignment is forbidden -->
+    </rule>
+
+    <rule ref="Squiz.Classes.ClassFileName.NoMatch">
+        <exclude-pattern>/tests/</exclude-pattern>
     </rule>
 
     <rule ref="Squiz.Commenting.BlockComment">
@@ -254,6 +268,7 @@
     <rule ref="Squiz.Commenting.VariableComment">
         <exclude name="Squiz.Commenting.VariableComment.Missing"/><!-- only @var tag is required which is covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingPropertyTypeHint -->
         <exclude name="Squiz.Commenting.VariableComment.MissingVar"/><!-- covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingPropertyTypeHint -->
+        <exclude name="Squiz.Commenting.VariableComment.TagNotAllowed"/><!-- does not handle custom annotations -->
     </rule>
 
     <rule ref="Squiz.ControlStructures.SwitchDeclaration">

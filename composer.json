@@ -8,7 +8,7 @@
         {"name": "Marek Štípek", "email": "marek.stipek@vanio.cz"}
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.4|8.0",
         "escapestudios/symfony2-coding-standard": "^3.11",
         "slevomat/coding-standard": "^6.4.0"
     },
@@ -21,7 +21,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.3.x-dev"
+            "dev-master": "0.4.x-dev"
         }
     }
 }

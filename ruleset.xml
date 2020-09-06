@@ -210,12 +210,6 @@
         </properties>
     </rule>
 
-    <rule ref="SlevomatCodingStandard.Namespaces.NamespaceSpacing">
-        <properties>
-            <property name="linesCountBeforeNamespace" value="0"/>
-        </properties>
-    </rule>
-
     <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
         <properties>
             <property name="allowFullyQualifiedGlobalClasses" value="true"/>
@@ -236,14 +230,6 @@
     <rule ref="SlevomatCodingStandard.Namespaces.UseSpacing.IncorrectLinesCountBeforeFirstUse">
         <exclude-pattern>autoload.php</exclude-pattern>
         <exclude-pattern>AppKernel.php</exclude-pattern>
-    </rule>
-
-    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
-        <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing"/>
-
-        <properties>
-            <property name="newlinesCountBetweenOpenTagAndDeclare" value="-1"/>
-        </properties>
     </rule>
 
     <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.IncorrectWhitespaceBetweenOpenTagAndDeclare">

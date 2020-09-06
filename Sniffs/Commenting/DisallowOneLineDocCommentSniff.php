@@ -38,7 +38,7 @@ class DisallowOneLineDocCommentSniff extends DisallowOneLinePropertyDocCommentSn
             return;
         }
 
-        $skippedTypes = [T_WHITESPACE, T_PUBLIC, T_PRIVATE, T_PROTECTED];
+        $skippedTypes = [T_WHITESPACE, T_PUBLIC, T_PRIVATE, T_PROTECTED, T_STRING];
 
         if (TokenUtility::findTokenAfter($file, $docCommentEndPointer, [T_VARIABLE], $skippedTypes)) {
             return;

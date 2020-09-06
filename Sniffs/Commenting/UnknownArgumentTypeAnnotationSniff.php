@@ -3,13 +3,9 @@ namespace Vanio\CodingStandards\Sniffs\Commenting;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
-use SlevomatCodingStandard\Helpers\Annotation\GenericAnnotation;
 use SlevomatCodingStandard\Helpers\Annotation\ParameterAnnotation;
-use SlevomatCodingStandard\Helpers\AnnotationHelper;
-use SlevomatCodingStandard\Helpers\AnnotationTypeHelper;
 use SlevomatCodingStandard\Helpers\DocCommentHelper;
 use SlevomatCodingStandard\Helpers\FunctionHelper;
-use SlevomatCodingStandard\Helpers\SuppressHelper;
 use SlevomatCodingStandard\Helpers\TokenHelper;
 
 class UnknownArgumentTypeAnnotationSniff implements Sniff
@@ -26,7 +22,7 @@ class UnknownArgumentTypeAnnotationSniff implements Sniff
     }
 
     /**
-     * @param File $file
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      * @param int $functionPointer
      */
     public function process(File $file, $functionPointer): void
@@ -70,10 +66,10 @@ class UnknownArgumentTypeAnnotationSniff implements Sniff
         );
         $changeStart = $starPointer ?? $docCommentOpenPointer + 1;
         $changeEnd = TokenHelper::findNext(
-                $file,
-                [T_DOC_COMMENT_CLOSE_TAG, T_DOC_COMMENT_STAR],
-                $parameterAnnotation->getEndPointer() + 1
-            ) - 1;
+            $file,
+            [T_DOC_COMMENT_CLOSE_TAG, T_DOC_COMMENT_STAR],
+            $parameterAnnotation->getEndPointer() + 1
+        ) - 1;
         $file->fixer->beginChangeset();
 
         for ($i = $changeStart; $i <= $changeEnd; $i++) {

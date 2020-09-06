@@ -234,6 +234,7 @@
     </rule>
 
     <rule ref="SlevomatCodingStandard.Namespaces.UseSpacing.IncorrectLinesCountBeforeFirstUse">
+        <exclude-pattern>autoload.php</exclude-pattern>
         <exclude-pattern>AppKernel.php</exclude-pattern>
     </rule>
 

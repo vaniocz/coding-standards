@@ -16,8 +16,6 @@ class TokenUtility
     }
 
     /**
-     * @param File $file
-     * @param int $pointer
      * @param int[] $types
      * @param int[] $skippedTypes
      * @return mixed[]|null
@@ -28,8 +26,6 @@ class TokenUtility
     }
 
     /**
-     * @param File $file
-     * @param int $pointer
      * @param int[] $types
      * @param int[] $skippedTypes
      * @return mixed[]|null
@@ -41,8 +37,6 @@ class TokenUtility
 
     private static function replaceWhiteSpace(File $file, int $pointer, string $content, int $increment): void
     {
-        $tokens = $file->getTokens();
-
         while (true) {
             if (!$token = self::findToken($file, $pointer, [T_WHITESPACE], [], $increment)) {
                 return;
@@ -54,11 +48,8 @@ class TokenUtility
     }
 
     /**
-     * @param File $file
-     * @param int $pointer
      * @param int[] $types
      * @param int[] $skippedTypes
-     * @param int $increment
      * @return mixed[]|null
      */
     private static function findToken(

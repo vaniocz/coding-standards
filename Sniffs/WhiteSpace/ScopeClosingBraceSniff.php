@@ -15,8 +15,7 @@ class ScopeClosingBraceSniff extends BaseScopeClosingBraceSniff
     public const MESSAGE_BLANK_LINES_IN_FUNCTION = 'Unexpected blank lines before function closing brace';
 
     /**
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
-     * @param File $file
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      * @param int $pointer
      */
     public function process(File $file, $pointer): void
@@ -53,7 +52,7 @@ class ScopeClosingBraceSniff extends BaseScopeClosingBraceSniff
             return;
         }
 
-        if (in_array($token['code'], [T_FUNCTION, T_CLOSURE])) {
+        if (in_array($token['code'], [T_FUNCTION, T_CLOSURE], true)) {
             $this->processFunctionScope($file, $pointer);
         }
 
@@ -61,8 +60,7 @@ class ScopeClosingBraceSniff extends BaseScopeClosingBraceSniff
     }
 
     /**
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
-     * @param File $file
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      * @param int $pointer
      */
     private function processFunctionScope(File $file, $pointer): void

@@ -4,9 +4,7 @@ namespace Vanio\CodingStandards\Sniffs\TypeHints;
 use PHP_CodeSniffer\Files\File;
 use SlevomatCodingStandard\Helpers\DocCommentHelper;
 use SlevomatCodingStandard\Helpers\FunctionHelper;
-use SlevomatCodingStandard\Helpers\PropertyHelper;
 use SlevomatCodingStandard\Helpers\StringHelper;
-use SlevomatCodingStandard\Helpers\SuppressHelper;
 use SlevomatCodingStandard\Helpers\TokenHelper;
 use SlevomatCodingStandard\Sniffs\TypeHints\ReturnTypeHintSniff as BaseReturnTypeHintSniff;
 
@@ -19,9 +17,8 @@ class ReturnTypeHintSniff extends BaseReturnTypeHintSniff
     public const MESSAGE_TEST_METHOD_RETURN_ANNOTATION = 'Test %s %s has%s @return annotation, @return annotations for test methods are forbidden';
 
     /**
-     * @param File $file
      * @param int $pointer
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      */
     public function process(File $file, $pointer): void
     {

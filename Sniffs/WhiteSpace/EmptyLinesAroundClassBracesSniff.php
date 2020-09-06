@@ -14,8 +14,7 @@ class EmptyLinesAroundClassBracesSniff extends BaseEmptyLinesAroundClassBracesSn
     public $linesCountBeforeClosingBrace = 0;
 
     /**
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
-     * @param File $file
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      * @param int $pointer
      */
     public function process(File $file, $pointer): void

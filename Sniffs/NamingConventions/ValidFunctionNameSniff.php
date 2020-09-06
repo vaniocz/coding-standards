@@ -11,8 +11,7 @@ class ValidFunctionNameSniff extends CamelCapsMethodNameSniff
     public const MESSAGE_NOT_SNAKE_CASE = 'Global function "%s" is not in snake case format';
 
     /**
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
-     * @param File $file
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      * @param int $pointer
      * @param int $scope
      */
@@ -26,8 +25,7 @@ class ValidFunctionNameSniff extends CamelCapsMethodNameSniff
     }
 
     /**
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
-     * @param File $file
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      * @param int $pointer
      */
     protected function processTokenOutsideScope(File $file, $pointer): void

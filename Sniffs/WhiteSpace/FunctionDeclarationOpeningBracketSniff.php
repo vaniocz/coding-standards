@@ -20,8 +20,7 @@ class FunctionDeclarationOpeningBracketSniff implements Sniff
     }
 
     /**
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
-     * @param File $file
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      * @param int $pointer
      */
     public function process(File $file, $pointer): void

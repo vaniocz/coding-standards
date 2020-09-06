@@ -22,8 +22,7 @@ class MethodScopeSniff extends AbstractScopeSniff
     }
 
     /**
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
-     * @param File $file
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      * @param int $pointer
      * @param int $scope
      */
@@ -55,8 +54,7 @@ class MethodScopeSniff extends AbstractScopeSniff
     }
 
     /**
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
-     * @param File $file
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      * @param int $pointer
      */
     protected function processTokenOutsideScope(File $file, $pointer): void

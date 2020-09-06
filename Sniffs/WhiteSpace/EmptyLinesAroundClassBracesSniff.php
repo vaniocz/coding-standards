@@ -2,10 +2,10 @@
 namespace Vanio\CodingStandards\Sniffs\WhiteSpace;
 
 use PHP_CodeSniffer\Files\File;
-use SlevomatCodingStandard\Sniffs\Types\EmptyLinesAroundTypeBracesSniff as BaseEmptyLinesAroundTypeBracesSniff;
+use SlevomatCodingStandard\Sniffs\Classes\EmptyLinesAroundClassBracesSniff as BaseEmptyLinesAroundClassBracesSniff;
 use Vanio\CodingStandards\Utility\TokenUtility;
 
-class EmptyLinesAroundTypeBracesSniff extends BaseEmptyLinesAroundTypeBracesSniff
+class EmptyLinesAroundClassBracesSniff extends BaseEmptyLinesAroundClassBracesSniff
 {
     /** @var int */
     public $linesCountAfterOpeningBrace = 0;

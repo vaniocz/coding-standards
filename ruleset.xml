@@ -5,6 +5,7 @@
     <arg name="ignore" value="var, vendor"/>
     <arg name="report-width" value="120"/>
     <config name="ignore_warnings_on_exit" value="1"/>
+    <autoload>autoload.php</autoload>
 
     <rule ref="Generic.Arrays.ArrayIndent"/>
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
@@ -69,10 +70,10 @@
         <exclude name="Symfony.ControlStructure.YodaConditions"/><!-- yoda conditions are forbidden -->
         <exclude name="Symfony.Formatting.ReturnOrThrow"/><!-- usage of elseif after if conditions which return or throw something is allowed -->
         <exclude name="Symfony.Functions.Arguments"/><!-- arguments on multiple lines are preferred over long lines -->
+        <exclude name="Symfony.Functions.ScopeOrder"/><!-- covered by SlevomatCodingStandard.Classes.ClassStructure -->
         <exclude name="Symfony.NamingConventions.ValidClassName.InvalidAbstractName"/><!-- abstract prefix and suffix is forbidden which is covered by SlevomatCodingStandard.Classes.SuperfluousAbstractClassNaming -->
         <exclude name="Symfony.NamingConventions.ValidClassName.InvalidInterfaceName"/><!-- interface prefix and suffix is forbidden which is covered by SlevomatCodingStandard.Classes.SuperfluousInterfaceNamingSniff -->
         <exclude name="Symfony.Objects.ObjectInstantiation"/><!-- instantiating classes with unnecessary parentheses is forbidden -->
-        <exclude name="Symfony.Scope.MethodScope"/><!-- unnecessary visibility on interface and test methods is forbidden which is covered by CodingStandards.Scope.MethodScope -->
         <exclude name="Symfony.WhiteSpace.AssignmentSpacing"/><!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
         <exclude name="Symfony.WhiteSpace.BinaryOperatorSpacing"/><!-- covered by Squiz.WhiteSpace.OperatorSpacing -->
         <exclude name="Symfony.WhiteSpace.DiscourageFitzinator"/><!-- covered by Squiz.WhiteSpace.SuperfluousWhitespace -->
@@ -81,24 +82,36 @@
 
     <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/ruleset.xml">
         <exclude name="SlevomatCodingStandard.Arrays.TrailingArrayComma"/><!-- covered by Squiz.Arrays.ArrayDeclaration -->
+        <exclude name="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces"/><!-- covered by CodingStandards.WhiteSpace.EmptyLinesAroundClassBraces -->
+        <exclude name="SlevomatCodingStandard.Classes.ParentCallSpacing"/><!--parent call spacing does not need special treatment -->
         <exclude name="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming"/><!-- exception classes must end with "Exception" suffix which is covered by Symfony.NamingConventions.ValidClassName.InvalidExceptionName -->
         <exclude name="SlevomatCodingStandard.Commenting.DisallowOneLinePropertyDocComment"/><!-- property PHPDoc must be written on one line when only one tag is present -->
+        <exclude name="SlevomatCodingStandard.Commenting.RequireOneLineDocComment"/><!-- function and method PHPDoc must be written on multiple lines -->
         <exclude name="SlevomatCodingStandard.ControlStructures.AssignmentInCondition.AssignmentInCondition"/><!-- assignment in condition is allowed when there is no equal sign -->
         <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEmpty"/><!-- empty() construct is allowed -->
-        <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEqualOperators"/><!-- equal operator is allowed when loosely comparing arrays -->
         <exclude name="SlevomatCodingStandard.ControlStructures.DisallowShortTernaryOperator"/><!-- short ternary operator is allowed -->
         <exclude name="SlevomatCodingStandard.ControlStructures.EarlyExit"/><!-- early exit is not preferred for short code, usage of elseif after if conditions which return or throw something is allowed -->
         <exclude name="SlevomatCodingStandard.ControlStructures.NewWithParentheses.MissingParentheses"/><!-- instantiating classes with unnecessary parentheses is forbidden -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.RequireMultiLineTernaryOperator"/><!-- single-line ternary operators are allowed -->
         <exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison"/><!-- yoda conditions are forbidden -->
+        <exclude name="SlevomatCodingStandard.Files.LineLength"/><!-- covered by Generic.Files.LineLength -->
         <exclude name="SlevomatCodingStandard.Files.TypeNameMatchesFileName"/><!-- needs further configuration, covered on runtime by PSR-4 -->
+        <exclude name="SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter"/><!-- unused method parameters are too common to be suppressed separately -->
+        <exclude name="SlevomatCodingStandard.Functions.StaticClosure"/><!-- static closures are not required -->
+        <exclude name="SlevomatCodingStandard.Functions.TrailingCommaInCall"/><!-- trailing commas are available since PHP 7.3 which is not a requirement or this version -->
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation.NonFullyQualifiedClassName"/><!-- class and interface names must be unqualified -->
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions"/><!-- class and interface names must be unqualified -->
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants"/><!-- global constant references must be unqualified -->
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions"/><!-- global function references must be unqualified -->
         <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces"/><!-- all namespaces except root namespace are allowed to use -->
+        <exclude name="SlevomatCodingStandard.Operators.DisallowEqualOperators"/><!-- equal operator is allowed when loosely comparing arrays -->
         <exclude name="SlevomatCodingStandard.Operators.DisallowIncrementAndDecrementOperators"/><!-- increment and decrement operators are preferred over plus and minus -->
-        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration"/><!-- void return type hint is forbidden in test methods, covered by CodingStandards.TypeHints.TypeHintDeclaration -->
-        <exclude name="SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces"/><!-- covered by CodingStandards.WhiteSpace.EmptyLinesAroundTypeBraces -->
+        <exclude name="SlevomatCodingStandard.PHP.DisallowReference.DisallowedAssigningByReference"/><!-- assignment by reference is allowed -->
+        <exclude name="SlevomatCodingStandard.PHP.DisallowReference.DisallowedPassingByReference"/><!-- passing by reference is allowed -->
+        <exclude name="SlevomatCodingStandard.TypeHints.DisallowArrayTypeHintSyntax"/><!-- array type hint syntax is preferred over generic type hint syntax -->
+        <exclude name="SlevomatCodingStandard.Functions.DisallowEmptyFunction"/><!-- empty functions are allowed -->
+        <exclude name="SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint"/><!-- mixed type hint is allowed -->
+        <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint"/><!-- void return type hint is forbidden in test methods, covered by CodingStandards.TypeHints.ReturnTypeHint -->
     </rule>
 
     <rule ref="Generic.Classes.DuplicateClassName">
@@ -149,7 +162,7 @@
     </rule>
 
     <rule ref="PSR2.Classes.ClassDeclaration">
-        <exclude name="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody"/><!-- covered by CodingStandards.WhiteSpace.EmptyLinesAroundTypeBraces.IncorrectEmptyLinesBeforeClosingBrace -->
+        <exclude name="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody"/><!-- covered by CodingStandards.WhiteSpace.EmptyLinesAroundClassBraces.IncorrectEmptyLinesBeforeClosingBrace -->
         <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNotAlone"/><!-- {} is preferred over newline which is covered by CodingStandards.WhiteSpace.ScopeClosingBrace -->
     </rule>
 
@@ -158,6 +171,43 @@
         <exclude name="PSR2.ControlStructures.SwitchDeclaration.caseIndent"/><!-- covered by Generic.WhiteSpace.ScopeIndent.Incorrect -->
         <exclude name="PSR2.ControlStructures.SwitchDeclaration.caseNotLower"/><!-- covered by Generic.PHP.LowerCaseKeyword.Found -->
         <exclude name="PSR2.ControlStructures.SwitchDeclaration.defaultIndent"/><!-- covered by Generic.WhiteSpace.ScopeIndent.Incorrect -->
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Classes.ClassStructure">
+        <properties>
+            <property name="groups" type="array">
+                <element value="uses"/>
+                <element value="public constants"/>
+                <element value="protected constants"/>
+                <element value="private constants"/>
+                <element value="public static properties"/>
+                <element value="protected static properties"/>
+                <element value="private static properties"/>
+                <element value="public properties"/>
+                <element value="protected properties"/>
+                <element value="private properties"/>
+                <element value="constructor"/>
+                <element value="static constructors"/>
+                <element value="destructor"/>
+                <element value="public methods"/>
+                <element value="public abstract methods"/>
+                <element value="public static methods"/>
+                <element value="public static abstract methods"/>
+                <element value="magic methods"/>
+                <element value="protected methods"/>
+                <element value="protected abstract methods"/>
+                <element value="protected static methods"/>
+                <element value="protected static abstract methods"/>
+                <element value="private methods"/>
+                <element value="private static methods"/>
+            </property>
+        </properties>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Classes.TraitUseSpacing">
+        <properties>
+            <property name="linesCountBeforeFirstUse" value="0"/>
+        </properties>
     </rule>
 
     <rule ref="SlevomatCodingStandard.Namespaces.NamespaceSpacing">
@@ -222,11 +272,13 @@
 
     <rule ref="Squiz.Commenting.FunctionComment">
         <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/><!-- short builtin types are preferred over long ones -->
-        <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/><!-- short builtin types are preferred over long ones -->
+        <exclude name="Squiz.Commenting.FunctionComment.IncorrectTypeHint"/><!-- covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration -->
+        <exclude name="Squiz.Commenting.FunctionComment.InvalidTypeHint"/><!-- covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration -->
         <exclude name="Squiz.Commenting.FunctionComment.Missing"/><!-- PHPDoc is not required on all methods -->
         <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/><!-- @param descriptions are not required -->
         <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/><!-- @param tags are not required for satisfactorily type-hinted arguments which is covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint -->
         <exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/><!-- @return void is forbidden -->
+        <exclude name="Squiz.Commenting.FunctionComment.ParamNameNoMatch"/><!-- covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration -->
         <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/><!-- covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint -->
         <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/><!-- extra spacing alignment is forbidden -->
         <exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/><!-- covered by SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint -->
@@ -282,8 +334,8 @@
             <property name="spacing" value="1"/>
         </properties>
 
-        <exclude name="Squiz.WhiteSpace.FunctionSpacing.AfterLast"/><!-- covered by CodingStandards.WhiteSpace.EmptyLinesAroundTypeBraces.IncorrectEmptyLinesBeforeClosingBrace -->
-        <exclude name="Squiz.WhiteSpace.FunctionSpacing.BeforeFirst"/><!-- covered by CodingStandards.WhiteSpace.EmptyLinesAroundTypeBraces.IncorrectEmptyLinesAfterOpeningBrace -->
+        <exclude name="Squiz.WhiteSpace.FunctionSpacing.AfterLast"/><!-- covered by CodingStandards.WhiteSpace.EmptyLinesAroundClassBraces.IncorrectEmptyLinesBeforeClosingBrace -->
+        <exclude name="Squiz.WhiteSpace.FunctionSpacing.BeforeFirst"/><!-- covered by CodingStandards.WhiteSpace.EmptyLinesAroundClassBraces.IncorrectEmptyLinesAfterOpeningBrace -->
     </rule>
 
     <rule ref="Squiz.WhiteSpace.MemberVarSpacing">
